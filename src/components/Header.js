@@ -16,7 +16,7 @@ export default function Header() {
         <Link to="/new">
           <img src={camera} alt="Enviar publicaçāo" />
         </Link>
-        
+
       </div>
     </header>
   );

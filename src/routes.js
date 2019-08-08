@@ -5,7 +5,6 @@ import Feed from './pages/Feed';
 import New from './pages/New';
 
 function Routes() {
-
   return (
 
     <Switch>
@@ -14,7 +13,6 @@ function Routes() {
     </Switch>
 
   );
-
 }
 
 export default Routes;
