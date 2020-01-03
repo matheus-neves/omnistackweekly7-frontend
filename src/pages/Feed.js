@@ -27,7 +27,7 @@ class Feed extends Component {
       feed,
     } = this.state;
 
-    const socket = io('http://localhost:3333');
+    const socket = io(process.env.PORT ? 'https://omnistackweekly7-backend.herokuapp.com' : 'http://localhost:3333');
 
     socket.on('post', (newPost) => {
       this.setState({ feed: [newPost, ...feed] });
