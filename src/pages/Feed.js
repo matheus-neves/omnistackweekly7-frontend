@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import io from 'socket.io-client';
-import api from '../services/api';
+import { api, baseURL } from '../services/api';
 
 import { PostList } from './FeedStyles';
 
@@ -27,7 +27,7 @@ class Feed extends Component {
       feed,
     } = this.state;
 
-    const socket = io(process.env.PORT ? 'https://omnistackweekly7-backend.herokuapp.com' : 'http://localhost:3333');
+    const socket = io(baseURL);
 
     socket.on('post', (newPost) => {
       this.setState({ feed: [newPost, ...feed] });
@@ -61,7 +61,7 @@ class Feed extends Component {
                 </div>
                 <img src={more} alt="Mais" />
               </header>
-              <img src={`http://localhost:3333/files/${post.image}`} alt="" />
+              <img src={`${baseURL}/${post.image}`} alt="" />
               <footer>
                 <div className="actions">
                   <button type="button" onClick={() => this.handleLike(post._id)}>
